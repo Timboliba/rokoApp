@@ -1,0 +1,67 @@
+:root{
+    --bleuMarine:#03224C;
+    --beige:#F9E4B7;
+    --blanc:#FFFFFF;
+    --bleu:#0080FF;
+    --noire:#000000;
+}
+
+.navbarContent{
+    background-color:var(--bleuMarine) ;
+    display: grid;
+    grid-template-rows:0.1fr 1fr 0.1fr;
+    /* width: 30%; */
+    /* grid-template-columns:max-content; */
+    gap: 25px;
+    height: 729px;
+    width: 100%;
+    /* grid-template-columns:max-content; */
+}
+
+.navbarContent a{
+    text-decoration: none;
+    color: var(--blanc);
+}
+
+.companyLogo{
+    color: var(--blanc);
+}
+
+
+.navbarContent .navigationLinks{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-around;
+}
+
+
+.chats,.marketing,.orders,.customers,.settings,.getHelps,.catalog,.userInfo,.reduire{
+    /* display: grid;
+    grid-template-columns: 50% 50%; */
+    display: flex;
+    align-items: start;
+    /* gap: 5px; */
+}
+
+
+svg{
+    color: var(--blanc);
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.navigationFooter{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-around;
+    gap: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(192, 192, 192, 0.527);
+}
+
+.navigationFooter>div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

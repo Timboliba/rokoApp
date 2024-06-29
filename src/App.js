@@ -1,0 +1,35 @@
+// import logo from './logo.svg';
+// import './App.css';
+import Navbar from './components/navigationBar/Navbar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+// import Container from './components/container/Container';
+import Settings from './components/settings/Settings'
+import Chats from './components/chats/Chats'
+import Customer from './components/customers/Customer';
+import Orders from './components/orders/Orders';
+import Catalog from './components/catalog/Catalog';
+
+
+function App() {
+  return (
+    <div className="App">
+      
+      <BrowserRouter>
+        <div style={{display:'grid',gridTemplateColumns:'15% 1fr'}}>
+        <Navbar/>
+        <div>
+          <Routes>
+            <Route index  element={<Chats/>}/>
+            <Route path='settings' element={<Settings/>}/>
+            <Route path='customers' element={<Customer/>}/>
+            <Route path='orders' element={<Orders/>}/>
+            <Route path='catalog' element={<Catalog/>}/>
+          </Routes>
+        </div>
+        </div>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;
