@@ -1,9 +1,17 @@
 import React from 'react'
+import './customer.css'
 
 const Customer = () => {
   return (
-    <div>
-      <h1>Customer</h1>
+    <div className='customerContainer'>
+      <div className="customerHeader">
+        <section className="customerHeaderLeft">
+          <h1>CLIENTS</h1>
+        </section>
+        <section className="customerHeaderRight">
+
+        </section>
+      </div>
     </div>
   )
 }
