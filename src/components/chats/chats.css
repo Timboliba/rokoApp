@@ -1,0 +1,6 @@
+*{
+    /* scrollbar-width: thin; */
+    scroll-behavior: smooth;
+    /* scroll-snap-stop: normal; */
+    scrollbar-width: none;
+}

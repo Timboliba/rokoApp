@@ -1,0 +1,108 @@
+:root{
+    --header_footer:white;
+    --button_color:grey;
+    --ombre:black;
+    --blancSale:rgba(114, 115, 110, 0.907);
+    --input_obligatoire:blue;
+}
+
+.profilContainer{
+    height: 100%;
+    display: grid;
+    background-color: var(--blancSale);
+    grid-template-rows: 70px 1fr 70px;
+}
+
+.profilHeader,.profilFooter{
+    background-color: var(--header_footer);
+}
+
+
+
+.profilHeader,.profilFooter{
+    display: grid;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.profilFooterButtons ,.profilHeaderDetails{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+}
+
+.profilHeaderDetails .nameAndNumber{
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    align-items: center;
+}
+
+.profilFooterButtons button{
+    padding: 5px;
+    width: 120px;
+    border-radius: 10px;
+}
+
+.profilFooterButtons button:last-child{
+    color: var(--header_footer);
+    background-color: var(--button_color);
+} 
+/* .profilFooterButtons button:last-child:active{} */
+
+.profilMain{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    margin: 0 10% 0 10%;
+   
+}
+
+.profilMain .profilMainLeft h1{
+    text-transform: uppercase;
+}
+
+
+.profilMain .profilMainForm{
+    background-color: var(--header_footer);
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px  1px var(--ombre);
+}
+
+.profilMain .profilMainFormMain{
+    display: grid;
+    align-items: center;    
+}
+
+.profilMainForm{
+    padding: 25px;
+}
+
+.profilMain .profilMainFormMain input{
+    width: 90%;
+    height: 30px;
+}
+
+
+.profilMainFormHeader{
+    display: grid;
+    gap: 10px;
+}
+
+.profilMainFormHeader .title{
+    font-size: 20px;
+}
+.profilMainFormHeaderPicture img{
+    height: 90px;
+    width: 90px;
+}
+
+.profilMainFormMain p{
+    font-size: 1.2rem;
+}
+
+.profilMainFormMain p span{
+    color: var(--input_obligatoire);
+}

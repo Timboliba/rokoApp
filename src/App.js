@@ -8,6 +8,8 @@ import Chats from './components/chats/Chats'
 import Customer from './components/customers/Customer';
 import Orders from './components/orders/Orders';
 import Catalog from './components/catalog/Catalog';
+import Marketing from './components/marketing/Marketing';
+import Profil from './components/profil/Profil';
 
 
 function App() {
@@ -21,9 +23,11 @@ function App() {
           <Routes>
             <Route index  element={<Chats/>}/>
             <Route path='settings' element={<Settings/>}/>
-            <Route path='customers' element={<Customer/>}/>
+            <Route path='customers' element={<Customer />} />
+            <Route path='communications'element={<Marketing/>}/>
             <Route path='orders' element={<Orders/>}/>
             <Route path='catalog' element={<Catalog/>}/>
+            <Route path='profil' element={<Profil/>}/>
           </Routes>
         </div>
         </div>
