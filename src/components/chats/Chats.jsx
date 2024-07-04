@@ -86,7 +86,7 @@ const Chats = () => {
           style={{ overflowY: "auto", height: "585px" }}
         >
           {Data.map((item) => {
-            return <Discussions item={item} key={item.id} />;
+            return <Discussions item={item} key={item.id}/>;
           })}
         </div>
       </div>

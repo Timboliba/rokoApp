@@ -1,6 +1,7 @@
 import React from "react";
 import "./customer.css";
 import dataCustomer from './customerData.json'
+import profil from'../chats/user.png'
 const Customer = () => {
 
   return (
@@ -38,51 +39,44 @@ const Customer = () => {
           </section>
         </div>
         <div className="customerMainCards">
-          <div className="customerCard"  style={{overflow:"auto",height:'580px',backgroundColor:'beige'}}>
-            <table>
-              <thead>
-                <tr>
-                  <th>
-                    <div className="customerName" style={{display:'flex'}}>
-                      <input type="checkbox" name="" id="" />
-                      <p>Nom Client</p>
-                    </div>
-                  </th>
-                  <th>
-                    Numéro client
-                  </th>
-                  <th>
-                    Etiquette
-                  </th>
-                  <th>
-                    Details
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {dataCustomer.map((e)=>{
+          <div className="customerCard" >
+            <div className="customerCardHeader">
+              <div className="customerCardHeaderItem" id="customerCardHeaderItemCheckbox">
+                <input type="checkbox" name="nomClt" id="nomClt" />
+                <p>Nom client</p>
+              </div>
+              <div className="customerCardHeaderItem">
+                <p>Numéro client</p>
+              </div>
+              <div className="customerCardHeaderItem">
+                <p>Etiquette</p>
+              </div>
+              <div className="customerCardHeaderItem">
+                <p>Détails</p>
+              </div>
+            </div>
+            <div className="customerCardsMain">
+              {
+                dataCustomer.map((item)=>{
                   return<>
-                  <tr>
-                  <th>
-                    <div className="customerInfoTBody" style={{display:'flex',alignItems:'center'}}>  
-                      <img src={e.picture} alt="profil pic" srcset="" />
-                      <p>{e.name}</p>
+                    <div className="customerCardHeaderItem" id="customerCardHeaderItemPic">
+                      <img src={profil} alt="pic" />
+                      <p>{item.name}</p>
                     </div>
-                  </th>
-                  <th>
-                    {e.number}
-                  </th>
-                  <th>
-                    {e.label}
-                  </th>
-                  <th>
-                    <a href="#">Voir</a>
-                  </th>
-                </tr>
+                    <div className="customerCardHeaderItem">
+                      <p>{item.number}</p>
+                    </div>
+                    <div className="customerCardHeaderItem">
+                      <p>{item.label}</p>
+                    </div>
+                    <div className="customerCardHeaderItem" id="para">
+                      {/* <a href="#">Voir plus</a> */}
+                      <p onClick={()=>{alert(item.number)}}>Voir plus</p>
+                    </div>
                   </>
-                })}
-              </tbody>
-            </table>
+                })
+              }
+            </div>
           </div>
         </div>
       </div>

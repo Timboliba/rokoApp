@@ -4,12 +4,13 @@
 
 
 .customerContainer{
-    width: 100%;
+    width: 1fr;
     height: 100%;
     display: grid;
-    grid-template-rows: 50px 2fr;
+    grid-template-rows: 50px 1fr;
     padding: 0;
-    margin: 0;
+    margin: 0 3% 0 3%;
+
 }
 h1{
     
@@ -18,11 +19,10 @@ h1{
 }
 
 .customerHeader{
-    border-bottom: 1px solid silver;
-    /* padding: 20px; */
+    border-bottom: 2px solid silver;
+   
 }
 
-/* .customerMain{} */
 
 .customerMainSearchAndFilteredAndInvitation{
     display: grid;
@@ -38,11 +38,86 @@ h1{
     text-align: end;
 }
 
+.customerInvite button{
+    /* padding: 10px 15px 10px 15px; */
+    background-color: blue;
+    color: white;
+    border-radius: 10px;
+    height: 30px;
+}
+
+select{
+    height: 30px;
+    border-radius: 5px;
+}
+
+#search{
+    height: 30px;
+    width: 200px;
+}
+
+.customerMainCards{
+    width:80;
+    margin: 0 5% 0 5%;
+    /* padding: 0 100px 0 0;  */
+}
+
+
+
+.customerCard{
+    margin-top: 20px;
+    font-size: 18px;
+    /* padding: 20px; */
+}
 .customerMain{
     display: grid;
     grid-template-rows: 1fr 6fr;
 }
 
-table thead tr th{
-    padding: 20px;
+.customerCardHeader{
+    background-color: rgba(255, 235, 205, 0.812);
+    border-radius: 10px 10px 0 0;
+    padding:10px 0 10px 0;
 }
+
+.customerCardHeader, .customerCardsMain{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+    align-items: center;
+    justify-self: center;
+}
+
+#para{
+    color: blue;
+}
+.customerCardHeader img, .customerCardsMain img{
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+.customerCardsMain{
+    overflow:auto;
+    height:450px;
+    background-color:beige;
+    border-radius: 0 0 10px 10px;
+    padding:5px 0 5px 0px;
+}
+
+.customerCard{
+    font-weight: 500;
+}
+
+.customerCardHeaderItem{
+    text-align: center;
+}
+
+#customerCardHeaderItemCheckbox,#customerCardHeaderItemPic{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+
