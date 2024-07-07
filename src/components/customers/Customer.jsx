@@ -1,9 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./customer.css";
 import dataCustomer from './customerData.json'
 import profil from'../chats/user.png'
 const Customer = () => {
+  const[isChecked,setIsChecked]=useState(false)
+  const[pupOpOpen,setPupOpOpen]=useState(false)
+  const[customerID,setCustomerId]=useState()
+  
+  const handleChecked=()=>{
+    setIsChecked(!isChecked)
+    // alert(isChecked)
+    // let customerCardsMain=document.querySelector('.customerCardsMain')
+    // if(isChecked==true){
+     
+    //   customerCardsMain.computedStyleMap.backgroundColor="red"
+    // }else{
+    //   customerCardsMain.computedStyleMap.backgroundColor="initial"
+    // }
+  }
 
+  const pupOp=(e)=>{
+    let id=e.target.id
+    // console.log("id du client : ",id)
+
+    setCustomerId(id)
+
+    setPupOpOpen(true)
+  }
   return (
     <div className="customerContainer">
       <div className="customerHeader">
@@ -12,7 +35,7 @@ const Customer = () => {
         </section>
         <section className="customerHeaderRight"></section>
       </div>
-      <div className="customerMain">
+      <div className="customerMain" style={{position:'relative'}}>
         <div className="customerMainSearchAndFilteredAndInvitation">
           <section className="customerSearch">
             <label className="searchIcon" for="search">
@@ -42,7 +65,7 @@ const Customer = () => {
           <div className="customerCard" >
             <div className="customerCardHeader">
               <div className="customerCardHeaderItem" id="customerCardHeaderItemCheckbox">
-                <input type="checkbox" name="nomClt" id="nomClt" />
+                <input type="checkbox" name="nomClt" id="nomClt" checked={isChecked} onChange={handleChecked} />
                 <p>Nom client</p>
               </div>
               <div className="customerCardHeaderItem">
@@ -71,12 +94,22 @@ const Customer = () => {
                     </div>
                     <div className="customerCardHeaderItem" id="para">
                       {/* <a href="#">Voir plus</a> */}
-                      <p onClick={()=>{alert(item.number)}}>Voir plus</p>
+                      <p onClick={pupOp} id={item.number}>Voir plus</p>
                     </div>
                   </>
                 })
               }
             </div>
+            
+            {pupOpOpen &&(
+              <div className="popUpContainer" style={{height:'500px',width:'600px',position:'absolute',zIndex:'200',backgroundColor:'purple',top:'150px',left:'25%',borderRadius:'10px'}}>
+                <div className="popUpContainerSub">
+                  
+                <button onClick={() => setPupOpOpen(false)} style={{position:'relative',height:'25px',width:'25px',backgroundColor:'red',color:'white',left:'574px',top:'-2px',borderRadius:'5px'}}>X</button>
+                  <p>ID du client selectionné : ${customerID}</p>
+                </div>
+            </div>
+            )}
           </div>
         </div>
       </div>

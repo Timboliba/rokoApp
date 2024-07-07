@@ -1,32 +1,35 @@
-:root{
-    --header_footer:white;
-    --button_color:grey;
-    --ombre:black;
-    --blancSale:rgba(114, 115, 110, 0.907);
-    --input_obligatoire:blue;
+:root {
+    --header_footer: white;
+    --button_color: grey;
+    --ombre: black;
+    --blancSale: rgba(114, 115, 110, 0.907);
+    --input_obligatoire: blue;
 }
 
-.profilContainer{
+.profilContainer {
     height: 100%;
     display: grid;
     background-color: var(--blancSale);
     grid-template-rows: 70px 1fr 70px;
 }
 
-.profilHeader,.profilFooter{
+.profilHeader,
+.profilFooter {
     background-color: var(--header_footer);
 }
 
 
 
-.profilHeader,.profilFooter{
+.profilHeader,
+.profilFooter {
     display: grid;
     align-items: center;
     padding-right: 10px;
 }
 
-.profilFooterButtons ,.profilHeaderDetails{
-    display:flex;
+.profilFooterButtons,
+.profilHeaderDetails {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
@@ -34,75 +37,84 @@
     gap: 15px;
 }
 
-.profilHeaderDetails .nameAndNumber{
+.profilHeaderDetails .nameAndNumber {
     display: grid;
-    grid-template-rows: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
     align-items: center;
 }
 
-.profilFooterButtons button{
+.profilFooterButtons button {
     padding: 5px;
     width: 120px;
     border-radius: 10px;
 }
 
-.profilFooterButtons button:last-child{
+.profilFooterButtons button:last-child {
     color: var(--header_footer);
     background-color: var(--button_color);
-} 
+}
+
 /* .profilFooterButtons button:last-child:active{} */
 
-.profilMain{
+.profilMain {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
     margin: 0 10% 0 10%;
-   
+
 }
 
-.profilMain .profilMainLeft h1{
+.profilMain .profilMainLeft {
+    margin-top: -400px;
+    font-size: 19px;
+}
+
+.profilMain .profilMainLeft h1 {
     text-transform: uppercase;
+    letter-spacing: 2px;
+
 }
 
 
-.profilMain .profilMainForm{
+.profilMain .profilMainForm {
     background-color: var(--header_footer);
     border-radius: 5px;
-    box-shadow: 10px 10px 5px  1px var(--ombre);
+    box-shadow: 10px 10px 5px 1px var(--ombre);
 }
 
-.profilMain .profilMainFormMain{
+.profilMain .profilMainFormMain {
     display: grid;
-    align-items: center;    
+    align-items: center;
 }
 
-.profilMainForm{
+.profilMainForm {
     padding: 25px;
 }
 
-.profilMain .profilMainFormMain input{
+.profilMain .profilMainFormMain input {
     width: 90%;
     height: 30px;
 }
 
 
-.profilMainFormHeader{
+.profilMainFormHeader {
     display: grid;
     gap: 10px;
 }
 
-.profilMainFormHeader .title{
+.profilMainFormHeader .title {
     font-size: 20px;
 }
-.profilMainFormHeaderPicture img{
+
+.profilMainFormHeaderPicture img {
     height: 90px;
     width: 90px;
 }
 
-.profilMainFormMain p{
+.profilMainFormMain p {
     font-size: 1.2rem;
 }
 
-.profilMainFormMain p span{
+.profilMainFormMain p span {
     color: var(--input_obligatoire);
 }

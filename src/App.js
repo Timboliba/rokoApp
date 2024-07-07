@@ -24,7 +24,7 @@ function App() {
             <Route index  element={<Chats/>}/>
             <Route path='settings' element={<Settings/>}/>
             <Route path='customers' element={<Customer />} />
-            <Route path='communications'element={<Marketing/>}/>
+            <Route path='communications/*'element={<Marketing/>}/>
             <Route path='orders' element={<Orders/>}/>
             <Route path='catalog' element={<Catalog/>}/>
             <Route path='profil' element={<Profil/>}/>

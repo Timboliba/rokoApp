@@ -1,5 +1,5 @@
 import "./profil.css";
-import SVG from './profile-major.svg'
+import SVG from "./profile-major.svg";
 const Profil = () => {
   return (
     <div className="profilContainer">
@@ -39,7 +39,7 @@ const Profil = () => {
                 <p>
                   Adresse e-mail <span>*</span>
                 </p>
-                <input type="email" name="email" />
+                <input type="email" name="email" placeholder="E-mail" />
               </div>
             </div>
           </div>
