@@ -57,8 +57,8 @@ select{
 }
 
 .customerMainCards{
-    width:80;
-    margin: 0 5% 0 5%;
+    /* width:80;
+    margin: 0 5% 0 5%; */
     /* padding: 0 100px 0 0;  */
 }
 
@@ -71,13 +71,14 @@ select{
 }
 .customerMain{
     display: grid;
-    grid-template-rows: 1fr 6fr;
+    position: relative;
+    /* grid-template-rows: 1fr 6fr; */
 }
 
 .customerCardHeader{
     background-color: rgba(255, 235, 205, 0.812);
     border-radius: 10px 10px 0 0;
-    padding:10px 0 10px 0;
+    /* padding:0 0 0 0; */
 }
 
 .customerCardHeader, .customerCardsMain{
@@ -120,4 +121,27 @@ select{
     align-items: center;
 }
 
+.customerFooter{
+    text-align: center;
+}
 
+.popUpContainer{
+    height: 500px;
+    width: 600px;
+    position: absolute;
+    z-index: 200;
+    background-color: purple;
+    top: 150px;
+    left: 25%;
+    border-radius: 10px
+}
+.popUpContainerSub button{
+    position: relative;
+    height: 25px;
+    width: 25px;
+    background-color:red;
+    color: white;
+    left: 574px;
+    top: -2px;
+    border-radius: 5px;
+}

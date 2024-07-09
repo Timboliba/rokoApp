@@ -1,6 +1,15 @@
+import { useState } from "react";
 import "./profil.css";
 import SVG from "./profile-major.svg";
 const Profil = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const handelRegister = () => {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    alert(`name : ${name}, email : ${email}`);
+  };
   return (
     <div className="profilContainer">
       <div className="profilHeader">
@@ -33,13 +42,18 @@ const Profil = () => {
                 <p>
                   Name <span>*</span>
                 </p>
-                <input type="text" placeholder="Name" />
+                <input type="text" placeholder="Name" id="name" />
               </div>
               <div className="profilMainFormMainEmail">
                 <p>
                   Adresse e-mail <span>*</span>
                 </p>
-                <input type="email" name="email" placeholder="E-mail" />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="E-mail"
+                  id="email"
+                />
               </div>
             </div>
           </div>
@@ -48,7 +62,7 @@ const Profil = () => {
       <div className="profilFooter">
         <div className="profilFooterButtons">
           <button>Annuler</button>
-          <button>Enregistrer</button>
+          <button onClick={handelRegister}>Enregistrer</button>
         </div>
       </div>
     </div>

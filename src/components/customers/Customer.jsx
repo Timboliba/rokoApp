@@ -1,32 +1,36 @@
 import React, { useState } from "react";
 import "./customer.css";
-import dataCustomer from './customerData.json'
-import profil from'../chats/user.png'
+import dataCustomer from "./customerData.json";
+import profil from "../chats/user.png";
 const Customer = () => {
-  const[isChecked,setIsChecked]=useState(false)
-  const[pupOpOpen,setPupOpOpen]=useState(false)
-  const[customerID,setCustomerId]=useState()
-  
-  const handleChecked=()=>{
-    setIsChecked(!isChecked)
+  const [isChecked, setIsChecked] = useState(false);
+  const [pupOpOpen, setPupOpOpen] = useState(false);
+  const [customerID, setCustomerId] = useState();
+
+  // Fonction de verification de la checkbox
+  const handleChecked = () => {
+    setIsChecked(!isChecked);
     // alert(isChecked)
     // let customerCardsMain=document.querySelector('.customerCardsMain')
     // if(isChecked==true){
-     
+
     //   customerCardsMain.computedStyleMap.backgroundColor="red"
     // }else{
     //   customerCardsMain.computedStyleMap.backgroundColor="initial"
     // }
-  }
+  };
 
-  const pupOp=(e)=>{
-    let id=e.target.id
-    // console.log("id du client : ",id)
+  // Fonction d'ouverture de la fenêtre modal et de recupération de l'id du client
+  const pupOp = (e) => {
 
-    setCustomerId(id)
+    let id = e.target.id;
 
-    setPupOpOpen(true)
-  }
+    setCustomerId(id);
+
+    setPupOpOpen(true);
+    
+    console.log("id du client : ",id)
+  };
   return (
     <div className="customerContainer">
       <div className="customerHeader">
@@ -35,7 +39,7 @@ const Customer = () => {
         </section>
         <section className="customerHeaderRight"></section>
       </div>
-      <div className="customerMain" style={{position:'relative'}}>
+      <div className="customerMain">
         <div className="customerMainSearchAndFilteredAndInvitation">
           <section className="customerSearch">
             <label className="searchIcon" for="search">
@@ -62,10 +66,19 @@ const Customer = () => {
           </section>
         </div>
         <div className="customerMainCards">
-          <div className="customerCard" >
+          <div className="customerCard">
             <div className="customerCardHeader">
-              <div className="customerCardHeaderItem" id="customerCardHeaderItemCheckbox">
-                <input type="checkbox" name="nomClt" id="nomClt" checked={isChecked} onChange={handleChecked} />
+              <div
+                className="customerCardHeaderItem"
+                id="customerCardHeaderItemCheckbox"
+              >
+                <input
+                  type="checkbox"
+                  name="nomClt"
+                  id="nomClt"
+                  checked={isChecked}
+                  onChange={handleChecked}
+                />
                 <p>Nom client</p>
               </div>
               <div className="customerCardHeaderItem">
@@ -79,10 +92,13 @@ const Customer = () => {
               </div>
             </div>
             <div className="customerCardsMain">
-              {
-                dataCustomer.map((item)=>{
-                  return<>
-                    <div className="customerCardHeaderItem" id="customerCardHeaderItemPic">
+              {dataCustomer.map((item) => {
+                return (
+                  <>
+                    <div
+                      className="customerCardHeaderItem"
+                      id="customerCardHeaderItemPic"
+                    >
                       <img src={profil} alt="pic" />
                       <p>{item.name}</p>
                     </div>
@@ -93,22 +109,37 @@ const Customer = () => {
                       <p>{item.label}</p>
                     </div>
                     <div className="customerCardHeaderItem" id="para">
-                      {/* <a href="#">Voir plus</a> */}
-                      <p onClick={pupOp} id={item.number}>Voir plus</p>
+                      <p onClick={pupOp} id={item.number}>
+                        Voir plus
+                      </p>
                     </div>
                   </>
-                })
-              }
+                );
+              })}
             </div>
-            
-            {pupOpOpen &&(
-              <div className="popUpContainer" style={{height:'500px',width:'600px',position:'absolute',zIndex:'200',backgroundColor:'purple',top:'150px',left:'25%',borderRadius:'10px'}}>
+
+            <div className="customerFooter">
+              <p>Communiqué avec tous les clients</p>
+            </div>
+            {pupOpOpen && (
+              <div
+                className="popUpContainer"
+              >
                 <div className="popUpContainerSub">
-                  
-                <button onClick={() => setPupOpOpen(false)} style={{position:'relative',height:'25px',width:'25px',backgroundColor:'red',color:'white',left:'574px',top:'-2px',borderRadius:'5px'}}>X</button>
-                  <p>ID du client selectionné : ${customerID}</p>
+                  <button
+                    onClick={() => setPupOpOpen(false)}
+                  >
+                    X
+                  </button>
+                  <div className="customerInformationCard">
+                    <dic className="customerInformationCardHead"></dic>
+                    <div className="customerInformationCardMain">
+                      <p>Numéro client :{customerID}</p>
+                      <p></p>
+                    </div>
+                  </div>
                 </div>
-            </div>
+              </div>
             )}
           </div>
         </div>
