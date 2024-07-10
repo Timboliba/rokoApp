@@ -1,7 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 const Navbar = () => {
+  const[toClick,setToClick]=useState(false)
+  const handleReduce=()=>{
+    let sidebar=document.querySelector('.routes')
+    let labelSidebar=document.querySelectorAll('a')
+    setToClick(true)
+    if(toClick==true){
+      labelSidebar.forEach(Element=>{
+        Element.style.display="none"
+      })
+      
+      sidebar.style.gridTemplateColumns = '5% 1fr';
+      
+    // let routes=document.querySelector('.routes').style.="5fr"
+    }
+  }
+  
   return (
     <div className="navbarContent">
       <div className="companyLogo">
@@ -9,7 +25,7 @@ const Navbar = () => {
           <img src="" alt="" srcset="" />
         </div>
         <div className="companyName">
-          <p>ROKO Co</p>
+          <p className="name">ROKO Co</p>
         </div>
       </div>
       <div className="navigationLinks">
@@ -166,7 +182,7 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="reduire">
+        <div className="reduire" onClick={handleReduce}>
           <div className="reduirePicture">
             <svg
               xmlns="http://www.w3.org/2000/svg"

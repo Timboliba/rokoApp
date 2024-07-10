@@ -56,10 +56,12 @@ select{
     width: 200px;
 }
 
-.customerMainCards{
+.customerMainCards .customerCardHeader,.customerCardsMain{
     /* width:80;
     margin: 0 5% 0 5%; */
     /* padding: 0 100px 0 0;  */
+    border-left: 1px solid silver;
+    border-right: 1px solid silver;
 }
 
 
@@ -81,7 +83,7 @@ select{
     /* padding:0 0 0 0; */
 }
 
-.customerCardHeader, .customerCardsMain{
+.customerCardHeader, .customerCardsMain .customerCardsMainItemsStyle{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 20px;
@@ -101,10 +103,12 @@ select{
 .customerCardsMain{
     overflow:auto;
     height:450px;
-    background-color:beige;
+    /* background-color:beige; */
     border-radius: 0 0 10px 10px;
     padding:5px 0 5px 0px;
 }
+
+
 
 .customerCard{
     font-weight: 500;
@@ -123,6 +127,7 @@ select{
 
 .customerFooter{
     text-align: center;
+    
 }
 
 .popUpContainer{
@@ -144,4 +149,16 @@ select{
     left: 574px;
     top: -2px;
     border-radius: 5px;
+}
+
+/* .customerCardsMainItemsStyle:nth-child(odd){
+    background-color: aqua;
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
+} */
+
+.customerCardsMainItemsStyle{
+    /* background-color: aqua; */
+    border-top: 1px solid silver;
+    border-bottom: 1px solid silver;
 }

@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 import './MarketingNavigation.css'
 const MarketingNavigation = () => {
   return (
-    <div className="marketingNavigationBar" style={{backgroundColor:'yellow'}}>
+    <div className="marketingNavigationBar">
       <div
         className="marketingNavigationHeaderTop" id="markNav"
         style={{ display: "flex", alignItems: "center", justifyContent: "end" }}
       >
         <Link to='/communications/nouveelleCampagne'>
-        <button>NEW CAMPAIGN</button>
+        <button>NOUVELLE CAMPAGNE</button>
         </Link>
       </div>
       <div
         className="marketingNavigationHeaderBottom"
         style={{ display: "flex", alignItems: "center", gap: "10px" }}
       >
-        <Link to='/communications'>Sent</Link>
+        <Link to='/communications'>Envoyé</Link>
         <Link
           to='/communications/programme'
           style={{
@@ -28,7 +28,7 @@ const MarketingNavigation = () => {
             textDecoration: "none",
           }}
         >
-          <p>Scheduled</p>
+          <p>Programmé</p>
           <span
             style={{
               backgroundColor: "blue",
@@ -43,7 +43,7 @@ const MarketingNavigation = () => {
             1
           </span>
         </Link>
-        <Link to='/communications/brouillon'>Your draft</Link>
+        <Link to='/communications/brouillon'>Votre brouillon</Link>
       </div>
     </div>
   );

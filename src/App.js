@@ -10,16 +10,17 @@ import Orders from './components/orders/Orders';
 import Catalog from './components/catalog/Catalog';
 import Marketing from './components/marketing/Marketing';
 import Profil from './components/profil/Profil';
+import Register from './components/auth/register/Register';
 
 
 function App() {
   return (
     <div className="App">
       
-      <BrowserRouter>
-        <div style={{display:'grid',gridTemplateColumns:'15% 1fr'}}>
+      {/* <BrowserRouter>
+        <div style={{display:'grid',gridTemplateColumns:'15% 1fr'}} className='routes'>
         <Navbar/>
-        <div>
+        <div style={{backgroundColor:'whitesmoke'}}>
           <Routes>
             <Route index  element={<Chats/>}/>
             <Route path='settings' element={<Settings/>}/>
@@ -31,7 +32,8 @@ function App() {
           </Routes>
         </div>
         </div>
-      </BrowserRouter>
+      </BrowserRouter> */}
+      <Register/>
     </div>
   );
 }

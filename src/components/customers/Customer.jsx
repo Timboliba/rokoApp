@@ -94,7 +94,7 @@ const Customer = () => {
             <div className="customerCardsMain">
               {dataCustomer.map((item) => {
                 return (
-                  <>
+                  <div className="customerCardsMainItemsStyle">
                     <div
                       className="customerCardHeaderItem"
                       id="customerCardHeaderItemPic"
@@ -111,15 +111,19 @@ const Customer = () => {
                     <div className="customerCardHeaderItem" id="para">
                       <p onClick={pupOp} id={item.number}>
                         Voir plus
+                        {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16" style={{color:'blue'}}>
+  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+</svg> */}
                       </p>
                     </div>
-                  </>
+                  </div>
                 );
               })}
             </div>
 
             <div className="customerFooter">
-              <p>Communiqué avec tous les clients</p>
+              <p>Ce sont tous vos clients sur choco.Allez ici pour en inter d'autres!</p>
             </div>
             {pupOpOpen && (
               <div

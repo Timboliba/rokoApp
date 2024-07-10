@@ -10,14 +10,13 @@ const Marketing = () => {
   return (
     <div
       className="marketingContainer"
-      style={{ display: "grid", gridAutoRows: "70px 1fr", height: "100%" }}
+      style={{ display: "grid", gridAutoRows: "70px 1fr", height: "100%",padding:'0 25px 0 25px' }}
     >
-      <div className="marketingContainerHeader">
+      <div className="marketingContainerHeader" style={{borderBottom:'1px solid silver'}}>
         <h1>COMMUNICATIONS</h1>
       </div>
       <div
-        className="marketingContainerMain"
-        style={{ backgroundColor: "teal" }}
+        className="marketingContainerMain" style={{paddingTop:'5px'}}
       >
         <MarketingNavigation />
         <Routes>
