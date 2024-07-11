@@ -180,6 +180,7 @@ const MarketingNewCampagn = () => {
             gap: "10px",
             alignItems: "center",
             margin: "10px 0 10px 0",
+            backgroundColor: "whitesmoke",
           }}
         >
           <div className="stepOneMokup">
@@ -188,7 +189,7 @@ const MarketingNewCampagn = () => {
           <div
             className="stepOneRightSection"
             style={{
-              backgroundColor: "whites",
+              backgroundColor: "white",
               padding: "0 50px 0 50px",
             }}
           >
@@ -446,7 +447,7 @@ const MarketingNewCampagn = () => {
                           <p>{item.name}</p>
                         </div>
 
-                        <input type="checkbox" name="" id="" />
+                        <input type="checkbox" name={item.number} id="" />
                       </div>
                     );
                   })}
