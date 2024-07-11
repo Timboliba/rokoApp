@@ -10,14 +10,16 @@ import Orders from './components/orders/Orders';
 import Catalog from './components/catalog/Catalog';
 import Marketing from './components/marketing/Marketing';
 import Profil from './components/profil/Profil';
+import Error from './_utils/Error';
 import Register from './components/auth/register/Register';
+import MarketingNewCampagn from './components/marketing/MarketingNewCampagn';
 
 
 function App() {
   return (
     <div className="App">
       
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <div style={{display:'grid',gridTemplateColumns:'15% 1fr'}} className='routes'>
         <Navbar/>
         <div style={{backgroundColor:'whitesmoke'}}>
@@ -28,12 +30,14 @@ function App() {
             <Route path='communications/*'element={<Marketing/>}/>
             <Route path='orders' element={<Orders/>}/>
             <Route path='catalog' element={<Catalog/>}/>
-            <Route path='profil' element={<Profil/>}/>
+              <Route path='profil' element={<Profil />} />
+              <Route path='nouveelleCampagne' element={ <MarketingNewCampagn/>} />
+            <Route path='/*' element={<Error.jsx/>}/>
           </Routes>
         </div>
         </div>
-      </BrowserRouter> */}
-      <Register/>
+      </BrowserRouter>
+      {/* <Register/> */}
     </div>
   );
 }

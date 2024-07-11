@@ -10,14 +10,20 @@ const Marketing = () => {
   return (
     <div
       className="marketingContainer"
-      style={{ display: "grid", gridAutoRows: "70px 1fr", height: "100%",padding:'0 25px 0 25px' }}
+      style={{
+        display: "grid",
+        gridAutoRows: "70px 1fr",
+        height: "100%",
+        padding: "0 25px 0 25px",
+      }}
     >
-      <div className="marketingContainerHeader" style={{borderBottom:'1px solid silver'}}>
+      <div
+        className="marketingContainerHeader"
+        style={{ borderBottom: "1px solid silver" }}
+      >
         <h1>COMMUNICATIONS</h1>
       </div>
-      <div
-        className="marketingContainerMain" style={{paddingTop:'5px'}}
-      >
+      <div className="marketingContainerMain" style={{ paddingTop: "5px" }}>
         <MarketingNavigation />
         <Routes>
           {/* Route par défaut */}
@@ -27,7 +33,7 @@ const Marketing = () => {
           {/* Route pour '/marketings/draft' */}
           <Route path="/brouillon" element={<MarketingDrafts />} />
 
-          <Route path="/nouveelleCampagne" element={<MarketingNewCampagn />} />
+          {/* <Route path="/nouveelleCampagne" element={<MarketingNewCampagn />} /> */}
         </Routes>
       </div>
     </div>

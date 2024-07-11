@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import PhoneInput from 'react-phone-input-2';
+import'react-phone-input-2/lib/style.css'
 const Register = () => {
   const [step,setStep]=useState(1)
   const[formData,setFormData]=useState({
@@ -28,6 +29,10 @@ const Register = () => {
     e.preventDefault();
 
     console.log('Form Data Submit : ',formData);
+  }
+  const[phone,setPhone]=useState('')
+  const sendOTP=()=>{
+    
   }
   return (
     <div className='registerContent' style={{display:'flex',justifyContent:'center',alignItems:'center',width:'auto',padding:'10%',backgroundColor:'red'}}>
@@ -60,6 +65,14 @@ const Register = () => {
             </form>
         </div>
       )}
+      {/* <div className="otpAuth">
+      <PhoneInput
+      country={'US'}
+      value={phone}
+      onChange={()=>setPhone("+"+phone)}
+      />
+      </div>
+      <button>Enoyer</button> */}
     </div>
   )
 }
