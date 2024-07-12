@@ -181,6 +181,7 @@ const MarketingNewCampagn = () => {
             alignItems: "center",
             margin: "10px 0 10px 0",
             backgroundColor: "whitesmoke",
+            position: "relative",
           }}
         >
           <div className="stepOneMokup">
@@ -236,63 +237,263 @@ const MarketingNewCampagn = () => {
             </div>
             <div className="stepOneRightSectionMain">
               <div className="campagnTitleContainer">
-                <p>Titre de la campagne</p>
-                <input
-                  type="text"
-                  name="titre"
-                  style={{ height: "40px", width: "450px" }}
-                  placeholder="e.g.50% off Parmesan Cheese"
-                  maxLength={60}
-                />
+                <p>Image ou Document</p>
+                <br />
+                <label
+                  className="campagnImageOrDoc"
+                  htmlFor="fileImage"
+                  style={{
+                    padding: "20px",
+                    border: "1px solid blue",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    // width="16"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-file-earmark"
+                    viewBox="0 0 16 16"
+                    style={{ color: "blue" }}
+                  >
+                    <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z" />
+                  </svg>
+                  <input
+                    type="file"
+                    name="fileImage"
+                    id="fileImage"
+                    placeholder="Ajout image ou document"
+                    style={{ border: "none", outline: "none" }}
+                  />
+                </label>
               </div>
-              <div className="campagnMessageContainer">
+              <br />
+              <div
+                className="campagnMessageContainer"
+                style={{ display: "grid", gap: "10px" }}
+              >
                 <p>
-                  Message de la campagne
+                  Produits
                   <span style={{ color: "blue" }}>*</span>
                 </p>
-                <p>
-                  Faites la prommotion d'offres, <br /> de réductions et bien
-                  plus encore auprès de vos clients
-                </p>
-                <textarea
-                  name="message"
-                  id=""
-                  cols="62"
-                  rows="10"
-                  style={{ resize: "none" }}
-                  placeholder="e.g.Stock up now to elevate your dishes and experience a rich,
-                savory taste at an unbedetable price. Don't miss out on this cheesy delight-order today!"
-                  maxLength={750}
-                ></textarea>
-              </div>
-              <div
-                className="campagnDeadlineContainer"
-                style={{ display: "flex", gap: "50px" }}
-              >
-                <p>Date limite de la campagne</p>
-                <input
-                  type="date"
-                  name=""
-                  id=""
+                <br />
+                <label
+                  className="campagnImageOrDoc"
+                  // htmlFor="fileImage"
                   style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    outline: "none",
-                    color: "blue",
+                    padding: "20px",
+                    border: "1px solid blue",
+                    display: "flex",
+                    alignItems: "center",
                   }}
-                />
+                  onClick={() => {
+                    let modalWindow = document.querySelector(".AddProducts");
+                    modalWindow.style.display = "block";
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    // width="16"
+                    height="40"
+                    fill="currentColor"
+                    class="bi bi-tag"
+                    viewBox="0 0 16 16"
+                    style={{ color: "blue" }}
+                  >
+                    <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0" />
+                    <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1m0 5.586 7 7L13.586 9l-7-7H2z" />
+                  </svg>
+                  <p>Ajout produits</p>
+                </label>
+                <div
+                  className="AddProducts"
+                  style={{
+                    position: "absolute",
+                    width: "97%",
+                    zIndex: 100,
+                    top: "-70px",
+                    right: "-1px",
+                    height: "690px",
+                    backgroundColor: "white",
+                    display: "none",
+                    padding: "0 20px 0 20px",
+                  }}
+                >
+                  <div
+                    className="headerTitle"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <h1>Ajouts Produits</h1>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      // width="16"
+                      height="35"
+                      fill="currentColor"
+                      class="bi bi-x"
+                      viewBox="0 0 16 16"
+                      style={{ color: "black" }}
+                      onClick={() => {
+                        let modalWindow =
+                          document.querySelector(".AddProducts");
+                        modalWindow.style.display = "none";
+                      }}
+                    >
+                      <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+                  </div>
+                  <section
+                    className="caution"
+                    style={{ display: "grid", alignItems: "center" }}
+                  >
+                    <div
+                      className="cautiondetails"
+                      style={{
+                        backgroundColor: "rgb(245, 245, 220)",
+                        borderLeft: "2px solid black",
+                      }}
+                    >
+                      <p
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "start",
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          // width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-info-circle-fill"
+                          viewBox="0 0 16 16"
+                          style={{ color: "black" }}
+                        >
+                          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+                        </svg>
+                        Les clients peuvent commander instantané les produits
+                        que vous partager
+                      </p>
+                      <p>
+                        Les produits attachés à une campagne seront visibles
+                        dans les catalogues de vos clients. Ils peuvent ensuite
+                        l'ajouter à leur guide de commande pour une commande
+                        immédiate.
+                      </p>
+                    </div>
+                    <div
+                      className="searchProductsContainer"
+                      style={{
+                        borderBottom: "1px solid grey",
+                        padding: "10px 0 10px 0",
+                      }}
+                    >
+                      <div
+                        className="searchProducts"
+                        style={{ display: "flex" }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          // width="16"
+                          height="30"
+                          fill="currentColor"
+                          class="bi bi-search"
+                          viewBox="0 0 16 16"
+                          style={{ color: "silver" }}
+                        >
+                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        </svg>
+                        <input
+                          type="search"
+                          name=""
+                          id=""
+                          placeholder="Entrer le nom d'un produits"
+                          style={{
+                            border: "none",
+                            width: "100%",
+                            outline: "none",
+                          }}
+                        />
+                      </div>
+                    </div>
+                    <div className="listProducts">
+                      <div
+                        className="listProductsHeader"
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "repeat(4,1fr)",
+                          padding: "10px 0 10px 0",
+                          alignItems: "center",
+                        }}
+                      >
+                        <div className="checkob">
+                          <input type="checkbox" name="" id="" />
+                        </div>
+                        <div className="id">ID</div>
+                        <div className="nom">Nom produit</div>
+                        <div className="unite">Unité</div>
+                      </div>
+                    </div>
+                    <div
+                      className="listProductsMain"
+                      style={{
+                        height: "380px",
+                        backgroundColor: "red",
+                        // margin: "10px 0 0 0",
+
+                        display: "grid",
+                        gridTemplateColumns: "repeat(4,1fr)",
+                        // padding: "10px 0 10px 0",
+                        // alignItems: "center",
+                        overflowY: "scroll",
+                      }}
+                    >
+                      {ListCustomer.map((item) => {
+                        return (
+                          <>
+                            <div className="checkbox">
+                              <input type="checkbox" name="" id="" />
+                            </div>
+                            <div className="id">51</div>
+                            <div className="nom">Kumquats-Naranjila china</div>
+                            <div className="unite">kilos</div>
+                          </>
+                        );
+                      })}
+                    </div>
+                    <div className="buttonSection">
+                      <button>Annuler</button>
+                      <button>Ajouter</button>
+                    </div>
+                  </section>
+                </div>
               </div>
+              <br />
             </div>
+            <br />
             <div
               className="stepOneRightSectionFooter"
               style={{
                 borderTop: "1px solid silver",
                 width: "100%",
                 padding: "20px 0 20px 0",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
               }}
             >
-              <button onClick={handlePreview}>Précedent</button>
-              <button onClick={handleNext}>Suivant</button>
+              <div className="brouillont">
+                <button>Brouillont</button>
+              </div>
+              <div className="step" style={{ display: "flex", gap: "10px" }}>
+                <button onClick={handlePreview}>Précedent</button>
+                <button onClick={handleNext}>Suivant</button>
+              </div>
             </div>
           </div>
         </div>

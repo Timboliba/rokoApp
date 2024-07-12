@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 const Navbar = () => {
-  const[toClick,setToClick]=useState(false)
-  const handleReduce=()=>{
-    let sidebar=document.querySelector('.routes')
-    let labelSidebar=document.querySelectorAll('a')
-    setToClick(true)
-    if(toClick==true){
-      labelSidebar.forEach(Element=>{
-        Element.style.display="none"
-      })
-      
-      sidebar.style.gridTemplateColumns = '5% 1fr';
-      
-    // let routes=document.querySelector('.routes').style.="5fr"
+  const [toClick, setToClick] = useState(false);
+  const handleReduce = () => {
+    let sidebar = document.querySelector(".routes");
+    let labelSidebar = document.querySelectorAll("a");
+    setToClick(true);
+    if (toClick == true) {
+      labelSidebar.forEach((Element) => {
+        Element.style.display = "none";
+      });
+
+      sidebar.style.gridTemplateColumns = "5% 1fr";
+
+      // let routes=document.querySelector('.routes').style.="5fr"
     }
-  }
-  
+  };
+
   return (
     <div className="navbarContent">
       <div className="companyLogo">
@@ -105,11 +105,11 @@ const Navbar = () => {
               width="20"
               height="20"
               fill="currentColor"
-              class="bi bi-file-text"
+              class="bi bi-tag"
               viewBox="0 0 16 16"
             >
-              <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z" />
-              <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1" />
+              <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0" />
+              <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1m0 5.586 7 7L13.586 9l-7-7H2z" />
             </svg>
           </div>
           <div className="linkCatalog">
@@ -172,13 +172,9 @@ const Navbar = () => {
             </svg>
           </div>
           <div className="userName">
-            <Link to='/profil'>
-            <div className="profil_name">
-                Antoine Laurent
-              </div>
-              <div className="profil_number">
-                +212 644-35638
-              </div>
+            <Link to="/profil">
+              <div className="profil_name">Antoine Laurent</div>
+              <div className="profil_number">+212 644-35638</div>
             </Link>
           </div>
         </div>
