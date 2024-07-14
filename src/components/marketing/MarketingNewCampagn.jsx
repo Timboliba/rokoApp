@@ -5,12 +5,20 @@ import Customer from "./customers.jpg";
 import ListCustomer from "../customers/customerData.json";
 const MarketingNewCampagn = () => {
   const [step, setStep] = useState(1);
+
+  // Fonction pour passer au formulaire suivant
   const handleNext = () => {
     setStep(step + 1);
   };
+
+  // Fonction pour revenir au formulaire précedent
   const handlePreview = () => {
     setStep(step - 1);
   };
+
+  // const handleCheck = () => {
+  //   let
+  // }
   return (
     <div
       className="newMarketingCampagnContainer"
@@ -313,12 +321,12 @@ const MarketingNewCampagn = () => {
                     position: "absolute",
                     width: "97%",
                     zIndex: 100,
-                    top: "-70px",
-                    right: "-1px",
+                    top: "-100px",
+                    right: "5px",
                     height: "690px",
                     backgroundColor: "white",
                     display: "none",
-                    padding: "0 20px 0 20px",
+                    padding: "0 20px 0 10px",
                   }}
                 >
                   <div
@@ -442,7 +450,7 @@ const MarketingNewCampagn = () => {
                     <div
                       className="listProductsMain"
                       style={{
-                        height: "380px",
+                        height: "400px",
                         backgroundColor: "red",
                         // margin: "10px 0 0 0",
 
@@ -466,9 +474,29 @@ const MarketingNewCampagn = () => {
                         );
                       })}
                     </div>
-                    <div className="buttonSection">
-                      <button>Annuler</button>
-                      <button>Ajouter</button>
+                    <div
+                      className="buttonSection"
+                      style={{
+                        paddingTop: "10px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "end",
+                        gap: "10px",
+                      }}
+                    >
+                      <button style={{ padding: "5px", borderRadius: "10px" }}>
+                        Annuler
+                      </button>
+                      <button
+                        style={{
+                          backgroundColor: "blue",
+                          color: "white",
+                          padding: "5px",
+                          borderRadius: "10px",
+                        }}
+                      >
+                        Ajouter
+                      </button>
                     </div>
                   </section>
                 </div>
@@ -653,23 +681,6 @@ const MarketingNewCampagn = () => {
                     );
                   })}
                 </div>
-              </div>
-              <div
-                className="campagnDeadlineContainer"
-                style={{ display: "flex", gap: "50px" }}
-              >
-                <p>Date limite de la campagne</p>
-                <input
-                  type="date"
-                  name=""
-                  id=""
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    outline: "none",
-                    color: "blue",
-                  }}
-                />
               </div>
             </div>
             <div

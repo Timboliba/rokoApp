@@ -4,3 +4,116 @@
     /* scroll-snap-stop: normal; */
     scrollbar-width: none;
 }
+.discussionBlock{
+    display: flex;
+            align-items: center;
+            border-bottom: 1px solid silver;
+            border-top: 1px solid silver;
+            padding: 5px 0 5px 0;
+}
+
+.discussionBlock img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%
+}
+.chatsContainer{
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    height: 100%;
+}
+
+.chatsContainer .listOfDifusion{
+border-right: 1px solid grey;
+}
+
+.listOfDifusion .titleDiscusion{
+    padding: 15px 0 15px 0;
+}
+
+h1,h2{
+    margin: 0;
+    padding: 0;
+}
+
+.listOfDifusion .searchContainer{
+    padding: 10px 5px 10px 5px;
+}
+
+.searchContainer input{
+    height: 50px;
+     width: 100%; 
+    border-radius: 10px
+}
+
+.discussionsList{
+    overflow-y: auto;
+    height: 585px;
+}
+
+.individualDiscussion .header{
+    display: grid;
+    grid-template-columns: 55% 1fr;
+    align-items: center;
+    border-bottom: 1px solid silver;
+}
+
+.header .nameOfuserReciever{
+    display: flex;
+    align-items: center;
+    padding-bottom:30px;
+}
+
+.nameOfuserReciever img{
+    height: 50px; 
+    width: 50px; 
+    border-radius: 50%;
+}
+
+.header .btnUpdate{
+    padding: 0 10px 5px 30px
+}
+
+.btnUpdate button{
+    height: 50px; 
+    border-radius:10px;
+}
+
+.discutionContaint{
+    overflow-y: scroll;
+    height: 585px;
+    scrollbar-width: thin;
+}
+
+.individualDiscussion .inputSender{
+    height: 50px;
+    padding: 5px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 70px 1fr 30px;
+    align-items: center;
+    gap: 10px;
+    border-top: 1px solid silver;
+}
+
+.inputSender svg{
+    background-color: grey;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+#msg{
+    height: 30px;
+    border-radius: 10px;
+}
+
+.inputSender svg:last-child{
+    background-color: red;
+    border-radius: 50px;
+    padding: 7px;
+}
+
+.nameAndLastChat h2+p{
+    margin: 0;
+    padding: 0;
+}

@@ -1,22 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 const Navbar = () => {
+  // const [toClick, setToClick] = useState(true);
+
+  // const handleReduce = () => {
+  //   let sidebar = document.querySelector(".routes");
+  //   let labelSidebar = document.querySelectorAll("a");
+  //   // if (toClick == true) {
+  //   labelSidebar.forEach((Element) => {
+  //     Element.style.display = "none";
+  //   });
+
+  //   sidebar.style.gridTemplateColumns = "5% 1fr";
+  //   setToClick(false);
+  //   // }
+  // };
+
+  // const handleElarge = () => {
+  //   let sidebar = document.querySelector(".routes");
+  //   let labelSidebar = document.querySelectorAll("a");
+
+  //   // if (toClick == false) {
+  //   labelSidebar.forEach((Element) => {
+  //     Element.style.display = "block";
+  //   });
+
+  //   sidebar.style.gridTemplateColumns = "15% 1fr";
+  //   setToClick(false);
+  //   // }
+  // };
+
   const [toClick, setToClick] = useState(false);
+
   const handleReduce = () => {
-    let sidebar = document.querySelector(".routes");
-    let labelSidebar = document.querySelectorAll("a");
-    setToClick(true);
-    if (toClick == true) {
+    setToClick(true); // Met à jour l'état de manière asynchrone
+  };
+
+  const handleElarge = () => {
+    setToClick(false); // Met à jour l'état de manière asynchrone
+  };
+
+  useEffect(() => {
+    const sidebar = document.querySelector(".routes");
+    const labelSidebar = document.querySelectorAll("a");
+
+    if (toClick) {
       labelSidebar.forEach((Element) => {
         Element.style.display = "none";
       });
 
       sidebar.style.gridTemplateColumns = "5% 1fr";
+    } else {
+      labelSidebar.forEach((Element) => {
+        Element.style.display = "block";
+      });
 
-      // let routes=document.querySelector('.routes').style.="5fr"
+      sidebar.style.gridTemplateColumns = "15% 1fr";
     }
-  };
+  }, [toClick]);
 
   return (
     <div className="navbarContent">
@@ -178,23 +220,42 @@ const Navbar = () => {
             </Link>
           </div>
         </div>
-        <div className="reduire" onClick={handleReduce}>
-          <div className="reduirePicture">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              class="bi bi-square-half"
-              viewBox="0 0 16 16"
-            >
-              <path d="M8 15V1h6a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1zm6 1a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2z" />
-            </svg>
+        {toClick ? (
+          <div className="reduire" onClick={handleElarge}>
+            <div className="reduirePicture">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-layout-sidebar-inset-reverse"
+                viewBox="0 0 16 16"
+              >
+                <path d="M2 2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zm12-1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2z" />
+                <path d="M13 4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z" />
+              </svg>
+            </div>
           </div>
-          <div className="reduireName">
-            <a href="#">Reduire la fenêtre</a>
+        ) : (
+          <div className="reduire" onClick={handleReduce}>
+            <div className="reduirePicture">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-layout-sidebar-inset"
+                viewBox="0 0 16 16"
+              >
+                <path d="M14 2a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM2 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2z" />
+                <path d="M3 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" />
+              </svg>
+            </div>
+            <div className="reduireName" style={{ color: "white" }}>
+              Reduire la fenêtre
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
