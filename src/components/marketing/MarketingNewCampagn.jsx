@@ -5,6 +5,47 @@ import Customer from "./customers.jpg";
 import ListCustomer from "../customers/customerData.json";
 const MarketingNewCampagn = () => {
   const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState({
+    titreCampagne: "",
+    messageCampagne: "",
+    date: "",
+    fichierImage: "",
+    listProduits: "",
+    listDifusion: "",
+  });
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+  // };
+  const handleChange = (e) => {
+    const { name, value, files } = e.target; // Incluez 'files' pour accéder au fichier sélectionné(s)
+
+    if (name === "fichierImage") {
+      setFormData({
+        ...formData,
+        fichierImage: files[0], // En supposant que vous souhaitez stocker le premier fichier sélectionné
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
+  };
+
+  // Ajustez le champ d'entrée de fichier
+  <input
+    type="file"
+    name="fichierImage"
+    id="fileImage"
+    placeholder="Ajout image ou document"
+    style={{ border: "none", outline: "none" }}
+    onChange={handleChange}
+  />;
 
   // Fonction pour passer au formulaire suivant
   const handleNext = () => {
@@ -122,10 +163,12 @@ const MarketingNewCampagn = () => {
                 <p>Titre de la campagne</p>
                 <input
                   type="text"
-                  name="titre"
+                  name="titreCampagne"
                   style={{ height: "40px", width: "450px" }}
                   placeholder="e.g.50% off Parmesan Cheese"
                   maxLength={60}
+                  value={formData.titreCampagne}
+                  onChange={handleChange}
                 />
               </div>
               <div className="campagnMessageContainer">
@@ -138,7 +181,7 @@ const MarketingNewCampagn = () => {
                   plus encore auprès de vos clients
                 </p>
                 <textarea
-                  name="message"
+                  name="messageCampagne"
                   id=""
                   cols="62"
                   rows="10"
@@ -146,6 +189,8 @@ const MarketingNewCampagn = () => {
                   placeholder="e.g.Stock up now to elevate your dishes and experience a rich,
                 savory taste at an unbedetable price. Don't miss out on this cheesy delight-order today!"
                   maxLength={750}
+                  value={formData.messageCampagne}
+                  onChange={handleChange}
                 ></textarea>
               </div>
               <div
@@ -155,7 +200,7 @@ const MarketingNewCampagn = () => {
                 <p>Date limite de la campagne</p>
                 <input
                   type="date"
-                  name=""
+                  name="date"
                   id=""
                   style={{
                     backgroundColor: "transparent",
@@ -163,6 +208,8 @@ const MarketingNewCampagn = () => {
                     outline: "none",
                     color: "blue",
                   }}
+                  value={formData.date}
+                  onChange={handleChange}
                 />
               </div>
             </div>
@@ -270,10 +317,11 @@ const MarketingNewCampagn = () => {
                   </svg>
                   <input
                     type="file"
-                    name="fileImage"
+                    name="fichierImage"
                     id="fileImage"
                     placeholder="Ajout image ou document"
                     style={{ border: "none", outline: "none" }}
+                    onChange={handleChange}
                   />
                 </label>
               </div>
@@ -440,7 +488,13 @@ const MarketingNewCampagn = () => {
                         }}
                       >
                         <div className="checkob">
-                          <input type="checkbox" name="" id="" />
+                          <input
+                            type="checkbox"
+                            name="listProduits"
+                            id=""
+                            value={formData.listProduits}
+                            onChange={handleChange}
+                          />
                         </div>
                         <div className="id">ID</div>
                         <div className="nom">Nom produit</div>
@@ -465,7 +519,13 @@ const MarketingNewCampagn = () => {
                         return (
                           <>
                             <div className="checkbox">
-                              <input type="checkbox" name="" id="" />
+                              <input
+                                type="checkbox"
+                                name="listProduits"
+                                id=""
+                                onChange={handleChange}
+                                value={formData.listProduits}
+                              />
                             </div>
                             <div className="id">51</div>
                             <div className="nom">Kumquats-Naranjila china</div>
@@ -516,11 +576,92 @@ const MarketingNewCampagn = () => {
               }}
             >
               <div className="brouillont">
-                <button>Brouillont</button>
+                <button
+                  onClick={() => {
+                    let modalWindow = (document.querySelector(
+                      ".modalScheduleLater"
+                    ).style.display = "block");
+                  }}
+                >
+                  Brouillont
+                </button>
               </div>
               <div className="step" style={{ display: "flex", gap: "10px" }}>
                 <button onClick={handlePreview}>Précedent</button>
                 <button onClick={handleNext}>Suivant</button>
+              </div>
+            </div>
+
+            <div
+              className="modalScheduleLater"
+              style={{
+                position: "absolute",
+                width: "auto",
+                zIndex: 100,
+                top: "300px",
+                right: "30%",
+                height: "200px",
+                backgroundColor: "white",
+                display: "flex",
+                flexDirection: "column",
+                gap: "40px",
+                padding: "20px 0px 50px 0 ",
+                border: "2px solid black",
+              }}
+            >
+              <div
+                className="modalScheduleLaterTitle"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <h2>Programmé pour plustard</h2>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  // width="16"
+                  height="35"
+                  fill="currentColor"
+                  class="bi bi-x"
+                  viewBox="0 0 16 16"
+                  style={{ color: "black" }}
+                  onClick={() => {
+                    let modalWindow = document.querySelector(
+                      ".modalScheduleLater"
+                    );
+                    modalWindow.style.display = "none";
+                  }}
+                >
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                </svg>
+              </div>
+              <div className="modalScheduleLaterDate">
+                <label htmlFor="date">Date</label>
+                <input type="date" name="modalScheduleLaterDate" id="date" />
+              </div>
+              <div className="modalScheduleLaterDate">
+                <label htmlFor="date">Date</label>
+                <input type="date" name="modalScheduleLaterDate" id="date" />
+              </div>
+              <div
+                className="modalScheduleLaterSave"
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  padding: "0 5px 0 0",
+                  // width: "100%",
+                }}
+              >
+                <button
+                  style={{
+                    padding: "10px",
+                    backgroundColor: "blue",
+                    color: "white",
+                  }}
+                >
+                  Save
+                </button>
               </div>
             </div>
           </div>
@@ -676,7 +817,12 @@ const MarketingNewCampagn = () => {
                           <p>{item.name}</p>
                         </div>
 
-                        <input type="checkbox" name={item.number} id="" />
+                        <input
+                          type="checkbox"
+                          name="listDifusion"
+                          id=""
+                          onChange={handleChange}
+                        />
                       </div>
                     );
                   })}

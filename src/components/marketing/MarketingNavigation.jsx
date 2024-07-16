@@ -10,7 +10,7 @@ const MarketingNavigation = () => {
         id="markNav"
         style={{ display: "flex", alignItems: "center", justifyContent: "end" }}
       >
-        <Link to="/nouveelleCampagne">
+        <Link to="/nouvelleCampagne">
           <button>NOUVELLE CAMPAGNE</button>
         </Link>
       </div>

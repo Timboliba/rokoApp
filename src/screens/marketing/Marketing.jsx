@@ -1,12 +1,11 @@
 import React from "react";
-import MarketingNavigation from "../../components/marketing/MarketingNavigation";
 import { Route, Routes } from "react-router-dom";
-import MarketingDrafts from "../../components/marketing/MarketingDrafts";
+import MarketingNavigation from "../../components/marketing/MarketingNavigation";
 import MarketingSent from "../../components/marketing/MarketingSent";
 import MarketingsScheduled from "../../components/marketing/MarketingsScheduled";
-// import MarketingNewCampagn from "../../components/marketing/MarketingNewCampagn";
+import MarketingDrafts from "../../components/marketing/MarketingDrafts";
 
-const Marketing = () => {
+const MarketingScreen = () => {
   return (
     <div
       className="marketingContainer"
@@ -28,8 +27,10 @@ const Marketing = () => {
         <Routes>
           {/* Route par défaut */}
           <Route index element={<MarketingSent />} />
+
           {/* Route pour '/marketings/scheduled' */}
           <Route path="/programme" element={<MarketingsScheduled />} />
+
           {/* Route pour '/marketings/draft' */}
           <Route path="/brouillon" element={<MarketingDrafts />} />
 
@@ -40,4 +41,4 @@ const Marketing = () => {
   );
 };
 
-export default Marketing;
+export default MarketingScreen;
